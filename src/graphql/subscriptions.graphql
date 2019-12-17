@@ -1,0 +1,22 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateTodo {
+  onCreateTodo {
+    id
+    title
+    done
+  }
+}
+subscription OnUpdateTodo {
+  onUpdateTodo {
+    id
+    title
+    done
+  }
+}
+subscription OnDeleteTodo {
+  onDeleteTodo {
+    id
+    title
+    done
+  }
+}

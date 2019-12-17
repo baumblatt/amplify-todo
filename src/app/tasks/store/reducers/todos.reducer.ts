@@ -1,7 +1,7 @@
 import {createEntityAdapter, EntityState} from '@ngrx/entity';
 import {Action, createReducer, on} from '@ngrx/store';
 import {Todo} from '../../models/todo.model';
-import {createTodo, removeTodo, updateTodo} from '../actions/todos.actions';
+import {createTodo, createTodoEvent, listTodos, removeTodo, removeTodoEvent, updateTodo, updateTodoEvent} from '../actions/todos.actions';
 
 export const todoAdapter = createEntityAdapter<Todo>();
 
@@ -11,9 +11,10 @@ const initialState: TodosState = todoAdapter.getInitialState({}) ;
 
 const reducer = createReducer<TodosState, Action>(
     initialState,
-    on(createTodo, (state, {todo}) => todoAdapter.addOne(todo, state)),
-    on(updateTodo, (state, {todo}) => todoAdapter.updateOne({id: todo.id, changes: todo}, state)),
-    on(removeTodo, (state, {todo}) => todoAdapter.removeOne(todo.id, state)),
+    on(listTodos, (state, {todos}) => todoAdapter.addAll(todos, state)),
+    on(createTodoEvent, (state, {todo}) => todoAdapter.addOne(todo, state)),
+    on(updateTodoEvent, (state, {todo}) => todoAdapter.updateOne({id: todo.id, changes: todo}, state)),
+    on(removeTodoEvent, (state, {todo}) => todoAdapter.removeOne(todo.id, state)),
 );
 
 export function todosReducer(state: TodosState | undefined, action: Action): TodosState {

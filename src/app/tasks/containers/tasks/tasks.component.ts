@@ -24,7 +24,7 @@ export class TasksComponent implements OnInit {
     }
 
     create() {
-        this.dispatch(createTodo({todo: {id: `${new Date().getTime()}`, title: '', done: false}}));
+        this.dispatch(createTodo({todo: {id: `${new Date().getTime()}`, title: '   ', done: false}}));
     }
 
     dispatch(action: Action) {
