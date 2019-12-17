@@ -1,0 +1,9 @@
+<div [class]="(theme$ | async)" fxLayout="column" fxLayoutAlign="start stretch" fxFlexFill>
+	<mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+		<span>Amplify Todo App</span>
+		<button mat-icon-button (click)="toggle()"><mat-icon>brightness_6</mat-icon></button>
+	</mat-toolbar>
+	<div class="container">
+		<router-outlet></router-outlet>
+	</div>
+</div>

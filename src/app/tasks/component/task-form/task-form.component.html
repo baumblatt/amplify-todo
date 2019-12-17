@@ -1,0 +1,13 @@
+<form [formGroup]="taskForm">
+	<div fxLayout="row" fxLayoutAlign="space-between center">
+		<mat-checkbox color="primary" formControlName="done">&nbsp;</mat-checkbox>
+		<mat-form-field floatLabel="auto" fxFlex="1 1 auto">
+			<mat-label>Title</mat-label>
+			<input formControlName="title" matInput placeholder="type the task title ...">
+		</mat-form-field>
+		<button mat-icon-button (click)="remove()" type="button">
+			<mat-icon>delete</mat-icon>
+		</button>
+	</div>
+</form>
+

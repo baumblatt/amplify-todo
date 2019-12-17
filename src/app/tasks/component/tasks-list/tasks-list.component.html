@@ -1,0 +1,6 @@
+<mat-list>
+	<mat-list-item *ngFor="let todo of todos">
+		<app-task-form [task]="todo" (actions)="dispatch($event)" fxFlex="1 1 auto"></app-task-form>
+	</mat-list-item>
+</mat-list>
+
